@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aweb
+  namespace: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aweb
+  template:
+    metadata:
+      labels:
+        app: aweb
+    spec:
+      containers:
+      - name: aweb
+        image: us.get.io/so1-proy2/frontdend-appweb-grupo6:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
